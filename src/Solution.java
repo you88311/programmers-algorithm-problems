@@ -1,5 +1,7 @@
 import java.lang.Math;
 
+/*숫자문자열과 영단어 프로그래머스 lv1*/
+
 public class Solution {
 
     public int[] solution(int[] lottos, int[] win_nums) {
