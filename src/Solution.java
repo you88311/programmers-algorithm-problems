@@ -3,8 +3,7 @@ import java.util.ArrayList;
 public class Solution {
     public String solution(String new_id) {
         String answer = "";
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(new_id);
+        
 
         return answer;
     }
