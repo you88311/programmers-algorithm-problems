@@ -1,40 +1,29 @@
-import java.lang.Math;
-
-/*숫자문자열과 영단어 프로그래머스 lv1*/
-
 public class Solution {
+    enum Number{
+        zero, one, two, three, four, five, six, seven, eight, nine
+    }
 
-    public int[] solution(int[] lottos, int[] win_nums) {
+    public int solution(String s) {
 
-        int erased_cnt = 0;
-        int winning_cnt = 0;
-        int j = 0;
+        for(Number i : Number.values())
+            s = s.replaceAll(i.name(), String.valueOf(i.ordinal()));
 
-        for (int lot_num : lottos) {
-            if (lot_num == 0)
-                erased_cnt++;
-            else {
-                for (int win_num : win_nums) {
-                    if (lot_num == win_num)
-                        winning_cnt++;
-                }
-            }
-        }
-
-        int min = Math.min(7 - winning_cnt, 6);
-        int max = Math.min(7 - (winning_cnt + erased_cnt), 6);
-
-        return new int[]{max, min};
+        int answer = Integer.parseInt(s);
+        return answer;
     }
 
     public static void main(String[] args) {
-        int[] lottos = {44, 1, 0, 0, 31, 25};
-        int[] win_nums = {31, 10, 45, 1, 6, 19};
+        String test1 = "one4seveneight";
+        String test2 = "23four5six7";
+        String test3 = "2three45sixseven";
+        String test4 = "123";
 
-        Solution sol = new Solution();
+        Solution sl = new Solution();
 
-        int[] answer = sol.solution(lottos, win_nums);
-        System.out.printf("[%d, %d]",answer[0],answer[1]);
+        System.out.println(sl.solution(test1));
+        System.out.println(sl.solution(test2));
+        System.out.println(sl.solution(test3));
+        System.out.println(sl.solution(test4));
+
     }
-
 }
