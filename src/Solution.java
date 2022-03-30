@@ -1,5 +1,3 @@
-/*주석 처리 추가ㅇㅇㅇㅇ*/
-
 public class Solution {
     enum Number{
         zero, one, two, three, four, five, six, seven, eight, nine
