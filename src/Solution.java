@@ -13,6 +13,7 @@ public class Solution {
     public static void main(String[] args) {
         Solution sol = new Solution();
         String new_id =  "...!@BaT#*..y.abcdefghijklm";
+        
 
         System.out.println(sol.solution(new_id));
     }
