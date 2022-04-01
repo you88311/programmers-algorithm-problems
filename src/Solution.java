@@ -61,6 +61,7 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution sol = new Solution();
+
         String new_id1 = "...!@BaT#*..y.abcdefghijklm.";
         String new_id2 = "z-+.^.";
         String new_id3 = "=.=";
