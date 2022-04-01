@@ -3,5 +3,5 @@
 ## 문제설명
 https://you88.tistory.com/4?category=1089082
 
-##프로그래머스 해당 문제
+## 프로그래머스 해당 문제
 https://programmers.co.kr/learn/courses/30/lessons/77484
