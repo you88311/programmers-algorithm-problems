@@ -7,8 +7,8 @@ enum Hand {
 
 public class Solution {
     public String solution(int[] numbers, String hand) {
-        StringBuffer answer = new StringBuffer();
 
+        StringBuffer answer = new StringBuffer();
         String[] currentPosition = {"*", "#"};
 
         int leftDistance = 0;
