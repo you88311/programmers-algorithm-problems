@@ -13,43 +13,52 @@ public class Solution {
 
         int leftDistance = 0;
         int rightDistance = 0;
-        String[] leftNum = {"1", "4", "7", "*"};
-        String[] rightNum = {"3", "6", "9", "#"};
+        String[] leftNum = {"1", "4", "7", "*"}; //무조건 왼손 사용하는 숫자들
+        String[] rightNum = {"3", "6", "9", "#"}; //무조건 오른손 사용하는 숫자들
         ArrayList<String> leftNumber = new ArrayList<>(Arrays.asList(leftNum));
         ArrayList<String> rightNumber = new ArrayList<>(Arrays.asList(rightNum));
+        String handUsed = ""; // 현재 숫자 누르기 위해 사용한 손
 
         for (int number : numbers) {
+                //1, 4, 7, *인 경우
             if (leftNumber.contains(Integer.toString(number))) {
-                answer.append("L");
-                currentPosition[Hand.LEFT.ordinal()] = Integer.toString(number);
+                handUsed = "left";
+                //3, 6, 9, #인 경우
             } else if (rightNumber.contains(Integer.toString(number))) {
-                answer.append("R");
-                currentPosition[Hand.RIGHT.ordinal()] = Integer.toString(number);
+                handUsed = "right";
+                //2, 5, 8, 0인 경우
+                //이 경우 별도 왼쪽 오른쪽 거리 계산 및 비교 필요
             } else {
                 leftDistance = distanceCalculate(number, currentPosition[Hand.LEFT.ordinal()]);
                 rightDistance = distanceCalculate(number, currentPosition[Hand.RIGHT.ordinal()]);
-                //System.out.printf("leftDistance: %d, rightDistance: %d \n", leftDistance, rightDistance);
+
                 if (leftDistance > rightDistance) {
-                    answer.append("R");
-                    currentPosition[Hand.RIGHT.ordinal()] = Integer.toString(number);
+                    handUsed = "right";
                 } else if (leftDistance < rightDistance) {
-                    answer.append("L");
-                    currentPosition[Hand.LEFT.ordinal()] = Integer.toString(number);
+                    handUsed = "left";
                 } else {
                     if (hand.equals("right")) {
-                        answer.append("R");
-                        currentPosition[Hand.RIGHT.ordinal()] = Integer.toString(number);
+                        handUsed = "right";
                     } else if (hand.equals("left")) {
-                        answer.append("L");
-                        currentPosition[Hand.LEFT.ordinal()] = Integer.toString(number);
+                        handUsed = "left";
                     }
                 }
+            }
+                /*왼손 사용한 경우*/
+            if(handUsed.equals("left")){
+                answer.append("L");
+                currentPosition[Hand.LEFT.ordinal()] = Integer.toString(number);
+                /*오른손 사용한 경우*/
+            }else{
+                answer.append("R");
+                currentPosition[Hand.RIGHT.ordinal()] = Integer.toString(number);
             }
         }
         String answerString = answer.toString();
         return answerString;
     }
 
+    /*왼손 또는 오른손 사용시 거리 측정하는 함수*/
     public int distanceCalculate(int num, String currentPosition) {
         int distance = 0;
         int[] index1;
@@ -67,6 +76,7 @@ public class Solution {
         return distance;
     }
 
+    /*2차원 배열 탐색 함수*/
     public int[] search(String[][] keypad, String number) {
         int[] index = {0, 0};
 
