@@ -37,11 +37,7 @@ public class Solution {
                 } else if (leftDistance < rightDistance) {
                     handUsed = "left";
                 } else {
-                    if (hand.equals("right")) {
-                        handUsed = "right";
-                    } else if (hand.equals("left")) {
-                        handUsed = "left";
-                    }
+                    handUsed = hand.equals("right") ? "right" : "hand";
                 }
             }
                 /*왼손 사용한 경우*/
@@ -54,8 +50,7 @@ public class Solution {
                 currentPosition[Hand.RIGHT.ordinal()] = Integer.toString(number);
             }
         }
-        String answerString = answer.toString();
-        return answerString;
+        return answer.toString();
     }
 
     /*왼손 또는 오른손 사용시 거리 측정하는 함수*/
