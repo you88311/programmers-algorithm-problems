@@ -38,13 +38,14 @@ public class Solution {
             }
         });
 
-        /*Double배열 문제 조건에 따라 int배열로 변환*/
+        //Double배열 문제 조건에 따라 int배열로 변환
         double tmp;
 
         for (int i = 0; i < failureRate.length; i++) {
             tmp = failureRate[i][0]; //Double to double
             answer[i] = (int) tmp;   //double to int
         }
+
 
         return answer;
     }
